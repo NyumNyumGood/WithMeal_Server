@@ -21,3 +21,7 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: create
+
+jwt:
+  access_token_secretKey: ${JWT_ACCESS_KEY}
+  access_token_valid_time: ${ACCESS_TOKEN_VALID_TIME}
