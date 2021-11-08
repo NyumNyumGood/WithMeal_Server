@@ -16,7 +16,7 @@ public class TestController {
 
     @GetMapping
     public String ping() {
-        return "pong";
+        return "pong!!";
     }
 
     @GetMapping("/token")
