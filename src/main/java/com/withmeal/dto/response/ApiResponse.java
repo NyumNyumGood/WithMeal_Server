@@ -15,7 +15,13 @@ import org.springframework.http.HttpStatus;
 public class ApiResponse<T> {
 
     private int status;
+    private String message;
     private T data;
+
+    public ApiResponse(int status, T data) {
+        this.status = status;
+        this.data = data;
+    }
 
     public static <T> ApiResponse<T> success(HttpStatus httpStatus) {
         return new ApiResponse<>(httpStatus.value(), null);
@@ -25,8 +31,8 @@ public class ApiResponse<T> {
         return new ApiResponse<>(httpStatus.value(), data);
     }
 
-    public static <T> ApiResponse<T> failure(HttpStatus httpStatus) {
-        return new ApiResponse<>(httpStatus.value(), null);
+    public static <T> ApiResponse<T> failure(HttpStatus httpStatus, String message) {
+        return new ApiResponse<>(httpStatus.value(), message,null);
     }
 
 }
