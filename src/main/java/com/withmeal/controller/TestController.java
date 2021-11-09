@@ -26,6 +26,7 @@ public class TestController {
 
     @GetMapping("/api/v1/token")
     public ApiResponse<TokenResponseDTO> getAccessToken() {
+        jwtService.createAccessToken(1L);
         return ApiResponse.success(HttpStatus.OK, new TokenResponseDTO("sdad", new Date()));
     }
 

@@ -20,11 +20,11 @@ public class PostController {
     private final PostService postService;
 
     @ApiOperation("피드에서 프로필 ")
-    @Auth
+    //@Auth
     @GetMapping("/post")
     public String getPostFeed() {
-        var userId = AuthContext.getCurrentUserId();
-        postService.getPostFeed(userId);
+        //var userId = AuthContext.getCurrentUserId();
+        //postService.getPostFeed(userId);
         return "test";
     }
 
