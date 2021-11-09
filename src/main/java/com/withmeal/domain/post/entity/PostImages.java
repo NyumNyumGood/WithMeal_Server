@@ -1,7 +1,7 @@
 package com.withmeal.domain.post.entity;
 
 import com.withmeal.domain.BaseEntity;
-import com.withmeal.domain.member.Member;
+import com.withmeal.domain.user.User;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,6 +28,6 @@ public class PostImages extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
-    private Member member;
+    private User member;
 
 }

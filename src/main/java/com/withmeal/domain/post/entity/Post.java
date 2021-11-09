@@ -1,7 +1,7 @@
 package com.withmeal.domain.post.entity;
 
 import com.withmeal.domain.BaseEntity;
-import com.withmeal.domain.member.Member;
+import com.withmeal.domain.user.User;
 import com.withmeal.domain.shop.Shop;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -42,7 +42,7 @@ public class Post extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
-    private Member member;
+    private User member;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shop_id")

@@ -1,5 +1,8 @@
 package com.withmeal.aop;
 
+import com.withmeal.domain.user.User;
+import com.withmeal.domain.user.UserRepository;
+import com.withmeal.exception.user.UserNotFoundException;
 import com.withmeal.service.JwtService;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
@@ -27,6 +30,7 @@ public class AuthAspect {
     private static final String ACCESS_TOKEN_NAME = "accessToken";
 
     private final HttpServletRequest httpServletRequest;
+    private final UserRepository memberRepository;
     private final JwtService jwtService;
 
     @Around("@annotation(Auth)")
@@ -34,7 +38,7 @@ public class AuthAspect {
         try {
             var accessToken = httpServletRequest.getHeader(ACCESS_TOKEN_NAME);
             var payload = jwtService.getAccessTokenPayload(accessToken).getId();
-            //setAuthContextUserId(payload);
+            setAuthContextUserId(payload);
 
             return pjp.proceed(pjp.getArgs());
         } catch (SignatureException | ExpiredJwtException | MalformedJwtException |
@@ -43,10 +47,10 @@ public class AuthAspect {
         }
     }
 
-//    private void setAuthContextUserId(final Long userId) {
-//        User user = userMapper.findByUserId(userId)
-//                .orElseThrow(UserNotFoundException::new);
-//        AuthContext.USER_CONTEXT.set(user.getId());
-//    }
+    private void setAuthContextUserId(final Long userId) {
+        User user = memberRepository.findById(userId)
+                .orElseThrow(UserNotFoundException::new);
+        AuthContext.USER_CONTEXT.set(user.getId());
+    }
 
 }

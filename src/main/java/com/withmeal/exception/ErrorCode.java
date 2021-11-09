@@ -14,6 +14,9 @@ public enum ErrorCode {
     INTERNAL_SERVER_ERROR(500, "Global004", "Server Error"),
     INVALID_TYPE_VALUE(400, "Global005", "Invalid Type Value"),
     HANDLE_ACCESS_DENIED(403, "Global006", "Access is Denied"),
+
+    // USer
+    USER_NOT_FOUND(400, "User001", "User Not Found Exception"),
     ;
 
     private final int status;
