@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * created by Gyunny 2021/11/09
  */
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/post")
 @RequiredArgsConstructor
 @RestController
 public class PostController {
@@ -24,7 +24,7 @@ public class PostController {
 
     @ApiOperation("피드에서 프로필 ")
     //@Auth
-    @GetMapping("/post")
+    @GetMapping
     public ApiResponse<List<PostResponseDTO>> getPostFeed() {
         //var userId = AuthContext.getCurrentUserId();
         return ApiResponse.success(HttpStatus.OK, postService.getHomeFeed(1L));
