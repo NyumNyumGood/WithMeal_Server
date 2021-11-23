@@ -2,6 +2,9 @@ package com.withmeal.domain.post.entity;
 
 import com.withmeal.domain.BaseEntity;
 import com.withmeal.domain.user.User;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +17,8 @@ import javax.persistence.ManyToOne;
 /**
  * created by Gyunny 2021/11/09
  */
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Entity
 public class PostImages extends BaseEntity {
 
@@ -27,7 +32,7 @@ public class PostImages extends BaseEntity {
     private Post post;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
-    private User member;
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }

@@ -1,5 +1,9 @@
 package com.withmeal.domain.shop;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +12,8 @@ import javax.persistence.Id;
 /**
  * created by Gyunny 2021/11/09
  */
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Entity
 public class Shop {
 

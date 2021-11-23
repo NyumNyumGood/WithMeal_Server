@@ -1,9 +1,11 @@
 package com.withmeal.domain.post.entity;
 
 import com.withmeal.domain.BaseEntity;
-import com.withmeal.domain.user.User;
 import com.withmeal.domain.shop.Shop;
+import com.withmeal.domain.user.User;
+import com.withmeal.domain.user.UserWith;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
@@ -22,6 +24,7 @@ import java.util.List;
  * created by Gyunny 2021/11/09
  */
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Table(name = "post")
 @Entity
 public class Post extends BaseEntity {
@@ -40,9 +43,12 @@ public class Post extends BaseEntity {
     @OneToMany(mappedBy = "post")
     private List<PostImages> postImages;
 
+    @OneToMany(mappedBy = "post")
+    private List<UserWith> userWiths;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
-    private User member;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shop_id")

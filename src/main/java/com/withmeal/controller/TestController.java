@@ -3,6 +3,7 @@ package com.withmeal.controller;
 import com.withmeal.dto.response.ApiResponse;
 import com.withmeal.dto.response.token.TokenResponseDTO;
 import com.withmeal.service.JwtService;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ public class TestController {
         return "pong!!";
     }
 
+    @ApiOperation("JWT 토큰 발급 임시 API")
     @GetMapping("/api/v1/token")
     public ApiResponse<TokenResponseDTO> getAccessToken() {
         jwtService.createAccessToken(1L);
