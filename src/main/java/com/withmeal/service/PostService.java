@@ -29,7 +29,7 @@ public class PostService {
     public List<PostResponseDTO> getHomeFeed(Long userId) {
         User user = userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
 
-        return postRepository.findAllByUserIn(convertFollowToUser(user)).stream()
+        return postRepository.findAllByUsersIn(convertFollowToUser(user)).stream()
                 .map(PostResponseDTO::from)
                 .collect(Collectors.toList());
     }

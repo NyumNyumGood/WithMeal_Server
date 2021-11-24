@@ -10,6 +10,7 @@ import com.withmeal.domain.user.UserWith;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,24 +22,31 @@ import java.util.stream.Collectors;
 public class PostResponseDTO {
 
     private Long postId;
+    private Long userId;
     private String nickname;
+    private String profileImage;
     private String title;
     private String content;
-    private String category;
+    private String foodCategory;
     private List<String> withNicknames;
     private List<String> images;
     private List<Evaluate> evaluates;
+    private LocalDate createdAt;
 
     public static PostResponseDTO from(Post post) {
         User user = post.getUser();
         return PostResponseDTO.builder()
                 .postId(post.getId())
+                .userId(user.getId())
                 .nickname(user.getNickname())
+                .profileImage(user.getProfileImage())
                 .title(post.getTitle())
                 .content(post.getContent())
+                .foodCategory(post.getCategory().getKorean())
                 .withNicknames(post.getUserWiths().stream().map(UserWith::getNickname).collect(Collectors.toList()))
                 .images(post.getPostImages().stream().map(PostImages::getImageUrl).collect(Collectors.toList()))
                 .evaluates(post.getPostEvaluates().stream().map(PostEvaluate::getEvaluate).collect(Collectors.toList()))
+                .createdAt(post.getCreatedTime().toLocalDate())
                 .build();
     }
 
