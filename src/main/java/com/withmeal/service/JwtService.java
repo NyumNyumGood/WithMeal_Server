@@ -8,6 +8,7 @@ import com.withmeal.exception.JsonWriteException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.spec.SecretKeySpec;
@@ -21,8 +22,13 @@ import java.util.Date;
 @Service
 public class JwtService {
 
+    @Value("${jwt.access_token_secretKey}")
+    private String accessTokenSecretKey;
+
+    @Value("${jwt.access_token_valid_time}")
+    private Long accessTokenValidTime;
+
     private final ObjectMapper objectMapper;
-    private final JwtProperties jwtProperties;
 
     private String createToken(final long payload, final String secretKey, final Long tokenValidTime) {
         var signatureAlgorithm = SignatureAlgorithm.HS256;
@@ -45,7 +51,7 @@ public class JwtService {
     }
 
     public String createAccessToken(final long payload) {
-        return createToken(payload, jwtProperties.getAccessTokenSecretKey(), jwtProperties.getAccessTokenValidTime());
+        return createToken(payload, accessTokenSecretKey, accessTokenValidTime);
     }
 
     public TokenResponseDTO createTokenResponse(final Long userId) {
@@ -58,7 +64,7 @@ public class JwtService {
     }
 
     public TokenDTO getAccessTokenPayload(final String accessToken) {
-        return getPayload(accessToken, jwtProperties.getAccessTokenSecretKey());
+        return getPayload(accessToken, accessTokenSecretKey);
     }
 
     private TokenDTO getPayload(final String token, final String secretKey) {

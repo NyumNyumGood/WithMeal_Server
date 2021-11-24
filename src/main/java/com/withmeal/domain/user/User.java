@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -37,9 +38,9 @@ public class User extends BaseEntity {
     private String universityName;
 
     @OneToMany(mappedBy = "following")
-    private List<Follow> following;
+    private List<Follow> following = new ArrayList<>();
 
     @OneToMany(mappedBy = "follower")
-    private List<Follow> follower;
+    private List<Follow> follower = new ArrayList<>();
 
 }

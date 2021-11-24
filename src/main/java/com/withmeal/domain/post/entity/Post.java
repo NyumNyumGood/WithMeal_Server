@@ -18,6 +18,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,13 +39,13 @@ public class Post extends BaseEntity {
     private String content;
 
     @OneToMany(mappedBy = "post")
-    private List<PostEvaluate> postEvaluates;
+    private List<PostEvaluate> postEvaluates = new ArrayList<>();
 
     @OneToMany(mappedBy = "post")
-    private List<PostImages> postImages;
+    private List<PostImages> postImages = new ArrayList<>();
 
     @OneToMany(mappedBy = "post")
-    private List<UserWith> userWiths;
+    private List<UserWith> userWiths = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

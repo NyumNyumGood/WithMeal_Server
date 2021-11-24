@@ -22,6 +22,8 @@ public class Shop {
 
     private String shopName;
 
+    private String shopImage;
+
     private String shopTelephone;
 
 }
