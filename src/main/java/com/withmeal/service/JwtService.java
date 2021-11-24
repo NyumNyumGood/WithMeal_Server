@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.withmeal.dto.TokenDTO;
 import com.withmeal.dto.response.token.TokenResponseDTO;
-import com.withmeal.exception.JsonWriteException;
+import com.withmeal.exception.jwt.JsonWriteException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;

@@ -2,10 +2,10 @@ package com.withmeal.aop;
 
 import com.withmeal.domain.user.User;
 import com.withmeal.domain.user.UserRepository;
+import com.withmeal.exception.jwt.JwtException;
 import com.withmeal.exception.user.UserNotFoundException;
 import com.withmeal.service.JwtService;
 import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.security.SignatureException;
@@ -43,7 +43,7 @@ public class AuthAspect {
             return pjp.proceed(pjp.getArgs());
         } catch (SignatureException | ExpiredJwtException | MalformedJwtException |
                 UnsupportedJwtException | IllegalArgumentException e) {
-            throw new JwtException(e.getMessage());
+            throw new JwtException();
         }
     }
 
