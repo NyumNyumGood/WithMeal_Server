@@ -1,6 +1,5 @@
 package com.withmeal.controller;
 
-import com.withmeal.aop.Auth;
 import com.withmeal.dto.response.ApiResponse;
 import com.withmeal.dto.response.follow.FollowProfileListResponseDTO;
 import com.withmeal.dto.response.user.UserSearchResponseDTO;

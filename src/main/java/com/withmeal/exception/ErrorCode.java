@@ -20,6 +20,9 @@ public enum ErrorCode {
     INVALID_JWT(401, "J001", "JWT가 없거나 잘못된 값 입니다"),
     DISCARD_REFRESH_TOKEN(401, "J001", "폐기된 RefreshToken 입니다."),
 
+    // Email
+    EMAIL_SEND_EXCEPTION(500, "E001", "이메일 보내기 실패"),
+
     // User
     USER_NOT_FOUND(400, "User001", "User Not Found Exception"),
     NICKNAME_DUPLICATE(400, "User002", "User Nickname Duplicate!"),

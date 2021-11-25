@@ -1,6 +1,5 @@
 package com.withmeal.controller;
 
-import com.withmeal.aop.Auth;
 import com.withmeal.aop.AuthContext;
 import com.withmeal.aop.ReAuth;
 import com.withmeal.dto.response.ApiResponse;
