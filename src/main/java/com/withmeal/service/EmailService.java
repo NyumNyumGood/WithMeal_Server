@@ -1,6 +1,8 @@
 package com.withmeal.service;
 
+import com.withmeal.exception.email.EmailCodeWrongException;
 import com.withmeal.exception.email.EmailSendException;
+import com.withmeal.util.RedisUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,16 +33,16 @@ public class EmailService {
     private Long validTime;
 
     private final JavaMailSender emailSender;
-    //private final RedisUtil redisUtil;
+    private final RedisUtil redisUtil;
     private final SpringTemplateEngine templateEngine;
 
     public void sendEmailMessage(String email) {
         try {
             String code = createCode();
+            redisUtil.setDataExpire(code, email, validTime);
             MimeMessage message = createMessage(email, code);
             emailSender.send(message);
         } catch (Exception e) {
-            e.printStackTrace();
             throw new EmailSendException();
         }
     }
@@ -80,13 +82,10 @@ public class EmailService {
         return code.toString();
     }
 
-//    public Long getUserIdByCode(String code) {
-//        String email = redisUtil.getData(code);
-//        if (email == null) {
-//            throw new EmailCodeException();
-//        }
-//
-//        User user = userValidator.checkEmailPresent(email);
-//        return user.getId();
-//    }
+    public void verifyCode(String code) {
+        if (redisUtil.getData(code) == null) {
+            throw new EmailCodeWrongException();
+        }
+    }
+
 }

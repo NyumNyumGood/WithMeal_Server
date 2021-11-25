@@ -7,7 +7,7 @@ import com.withmeal.dto.response.token.TokenResponseDTO;
 import com.withmeal.dto.response.user.UserProfileResponseDTO;
 import com.withmeal.dto.response.user.UserProfileShopWantResponseDTO;
 import com.withmeal.dto.response.user.UserProfileShopWentResponseDTO;
-import com.withmeal.service.JwtService;
+import com.withmeal.infra.jwt.JwtService;
 import com.withmeal.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +35,7 @@ public class UserController {
     @ApiOperation("회원 가입")
     @PostMapping
     public ApiResponse<TokenResponseDTO> signup(@RequestBody @Valid SignupRequestDTO signupRequestDTO) {
-        return ApiResponse.success(HttpStatus.OK, jwtService.createTokenResponse(userService.signup(signupRequestDTO)));
+        return ApiResponse.success(HttpStatus.CREATED, jwtService.createTokenResponse(userService.signup(signupRequestDTO)));
     }
 
     @ApiOperation("로그인")

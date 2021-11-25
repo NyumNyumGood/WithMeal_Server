@@ -1,12 +1,12 @@
 package com.withmeal.controller;
 
+import com.withmeal.dto.email.EmailCodeDTO;
 import com.withmeal.dto.email.EmailDTO;
 import com.withmeal.dto.response.ApiResponse;
 import com.withmeal.service.EmailService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,10 +31,10 @@ public class EmailController {
         return ApiResponse.success(HttpStatus.OK);
     }
 
-//    @ApiOperation("인증 코드 검증")
-//    @PostMapping("/verify")
-//    public ResponseEntity<ResponseDto> verifyCode(@RequestBody @Valid EmailCodeDto code) {
-//        Long userId = emailService.getUserIdByCode(code.getCode());
-//        return ResponseEntity.ok(ResponseDto.of(HttpStatus.OK, EMAIL_AUTH_SUCCESS, jwtIssueService.createAccessToken(new JwtPayload(userId))));
-//    }
+    @ApiOperation("인증 코드 검증")
+    @PostMapping("/verify")
+    public ApiResponse<Object> verifyCode(@RequestBody @Valid EmailCodeDTO emailCodeDto) {
+        emailService.verifyCode(emailCodeDto.getCode());
+        return ApiResponse.success(HttpStatus.OK);
+    }
 }

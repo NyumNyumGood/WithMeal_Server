@@ -1,4 +1,4 @@
-package com.withmeal.aop;
+package com.withmeal.infra.aop;
 
 import io.jsonwebtoken.JwtException;
 

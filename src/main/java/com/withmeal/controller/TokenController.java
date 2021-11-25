@@ -1,10 +1,10 @@
 package com.withmeal.controller;
 
-import com.withmeal.aop.AuthContext;
-import com.withmeal.aop.ReAuth;
 import com.withmeal.dto.response.ApiResponse;
 import com.withmeal.dto.response.token.TokenResponseDTO;
-import com.withmeal.service.JwtService;
+import com.withmeal.infra.aop.AuthContext;
+import com.withmeal.infra.aop.ReAuth;
+import com.withmeal.infra.jwt.JwtService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,11 +1,11 @@
-package com.withmeal.aop;
+package com.withmeal.infra.aop;
 
 import com.withmeal.domain.user.entity.User;
 import com.withmeal.domain.user.repository.UserRepository;
 import com.withmeal.exception.jwt.DiscardRefreshTokenException;
 import com.withmeal.exception.jwt.JwtException;
 import com.withmeal.exception.user.UserNotFoundException;
-import com.withmeal.service.JwtService;
+import com.withmeal.infra.jwt.JwtService;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.UnsupportedJwtException;
@@ -35,7 +35,7 @@ public class AuthAspect {
     private final UserRepository userRepository;
     private final JwtService jwtService;
 
-    @Around("@annotation(Auth)")
+    @Around("@annotation(com.withmeal.infra.aop.Auth)")
     public Object accessToken(final ProceedingJoinPoint pjp) throws Throwable {
         try {
             var accessToken = httpServletRequest.getHeader(ACCESS_TOKEN_NAME);
@@ -49,7 +49,7 @@ public class AuthAspect {
         }
     }
 
-    @Around("@annotation(ReAuth)")
+    @Around("@annotation(com.withmeal.infra.aop.ReAuth)")
     public Object refreshToken(final ProceedingJoinPoint pjp) throws Throwable {
         try {
             var refreshToken = httpServletRequest.getHeader(REFRESH_TOKEN_NAME);

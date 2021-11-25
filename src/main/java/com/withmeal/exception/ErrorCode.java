@@ -22,6 +22,7 @@ public enum ErrorCode {
 
     // Email
     EMAIL_SEND_EXCEPTION(500, "E001", "이메일 보내기 실패"),
+    EMAIL_INVALID_CODE(400, "E002", "이메일 인증 코드가 잘못되었습니다."),
 
     // User
     USER_NOT_FOUND(400, "User001", "User Not Found Exception"),

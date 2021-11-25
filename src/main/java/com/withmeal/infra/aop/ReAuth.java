@@ -1,4 +1,4 @@
-package com.withmeal.aop;
+package com.withmeal.infra.aop;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
