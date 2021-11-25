@@ -1,7 +1,7 @@
 package com.withmeal.dto.response.user;
 
-import com.withmeal.domain.shop.Shop;
-import com.withmeal.domain.shop.ShopImage;
+import com.withmeal.domain.shop.entity.Shop;
+import com.withmeal.domain.shop.entity.ShopImage;
 import com.withmeal.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

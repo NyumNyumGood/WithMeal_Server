@@ -1,9 +1,14 @@
 package com.withmeal.dto.response.user;
 
 import com.withmeal.domain.post.entity.Post;
-import com.withmeal.domain.shop.Shop;
+import com.withmeal.domain.shop.entity.Shop;
+import com.withmeal.domain.shop.entity.ShopImage;
 import lombok.Builder;
 import lombok.Getter;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * created by Gyunny 2021/11/24
@@ -13,15 +18,17 @@ import lombok.Getter;
 public class UserProfileShopWentResponseDTO {
 
     private Long shopId;
-    private String shopImage;
+    private List<String> shopImage;
     private String shopName;
+    private LocalDate createdAt;
 
-//    public static UserProfileShopWentResponseDTO from(Post post) {
-//        Shop shop = post.getShop();
-//        return UserProfileShopWentResponseDTO.builder()
-//                .shopId(shop.getId())
-//                .shopImage(shop.getShopImage())
-//                .shopName(shop.getShopName())
-//                .build();
-//    }
+    public static UserProfileShopWentResponseDTO from(Post post) {
+        Shop shop = post.getShop();
+        return UserProfileShopWentResponseDTO.builder()
+                .shopId(shop.getId())
+                .shopImage(shop.getShopImage().stream().map(ShopImage::getShopImage).collect(Collectors.toList()))
+                .shopName(shop.getShopName())
+                .createdAt(post.getCreatedTime().toLocalDate())
+                .build();
+    }
 }

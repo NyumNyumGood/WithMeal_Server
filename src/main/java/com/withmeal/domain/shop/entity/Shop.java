@@ -1,4 +1,4 @@
-package com.withmeal.domain.shop;
+package com.withmeal.domain.shop.entity;
 
 import lombok.AccessLevel;
 import lombok.Getter;

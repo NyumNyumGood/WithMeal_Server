@@ -1,5 +1,6 @@
-package com.withmeal.domain.shop;
+package com.withmeal.domain.shop.entity;
 
+import com.withmeal.domain.user.User;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,21 +15,23 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * created by Gyunny 2021/11/25
+ * created by Gyunny 2021/11/24
  */
+
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Table(name = "shop_image")
+@Table(name = "shop_bookmark")
 @Entity
-public class ShopImage {
+public class ShopBookmark {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String shopImage;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "shop_id")
     private Shop shop;
 
 }

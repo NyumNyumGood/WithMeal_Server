@@ -1,7 +1,7 @@
 package com.withmeal.domain.post.repository;
 
 import com.withmeal.domain.post.entity.Post;
-import com.withmeal.domain.shop.Shop;
+import com.withmeal.domain.shop.entity.Shop;
 import com.withmeal.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

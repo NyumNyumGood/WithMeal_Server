@@ -1,5 +1,6 @@
-package com.withmeal.domain.shop;
+package com.withmeal.domain.shop.repository;
 
+import com.withmeal.domain.shop.entity.Shop;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

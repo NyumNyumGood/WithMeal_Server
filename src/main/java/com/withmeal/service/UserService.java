@@ -4,9 +4,9 @@ import com.withmeal.domain.follow.Follow;
 import com.withmeal.domain.follow.FollowRepository;
 import com.withmeal.domain.post.entity.Post;
 import com.withmeal.domain.post.repository.PostRepository;
-import com.withmeal.domain.shop.Shop;
-import com.withmeal.domain.shop.ShopBookmark;
-import com.withmeal.domain.shop.ShopBookmarkRepository;
+import com.withmeal.domain.shop.entity.Shop;
+import com.withmeal.domain.shop.entity.ShopBookmark;
+import com.withmeal.domain.shop.repository.ShopBookmarkRepository;
 import com.withmeal.domain.user.User;
 import com.withmeal.domain.user.UserRepository;
 import com.withmeal.dto.response.user.UserProfileResponseDTO;
@@ -39,11 +39,11 @@ public class UserService {
         return UserProfileResponseDTO.from(user, followRepository.countAllByFollowing(user), followRepository.countAllByFollower(user));
     }
 
-//    public List<UserProfileShopWentResponseDTO> getUserProfileWentShop(Long userId) {
-//        return postRepository.findAllByUser(findOne(userId)).stream()
-//                .map(UserProfileShopWentResponseDTO::from)
-//                .collect(Collectors.toList());
-//    }
+    public List<UserProfileShopWentResponseDTO> getUserProfileWentShop(Long userId) {
+        return postRepository.findAllByUser(findOne(userId)).stream()
+                .map(UserProfileShopWentResponseDTO::from)
+                .collect(Collectors.toList());
+    }
 
     public List<UserProfileShopWantResponseDTO> getUserProfileWantShop(Long userId) {
         User user = findOne(userId);

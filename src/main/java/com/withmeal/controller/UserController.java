@@ -38,11 +38,11 @@ public class UserController {
         return ApiResponse.success(HttpStatus.OK, userService.getUserProfileWantShop(1L));
     }
 
-//    @ApiOperation("유저 프로필 가봤어요")
-//    //@Auth
-//    @GetMapping("/profile/went")
-//    public ApiResponse<List<UserProfileShopWentResponseDTO>> getUserProfileWent() {
-//        return ApiResponse.success(HttpStatus.OK, userService.getUserProfileWentShop(1L));
-//    }
+    @ApiOperation("유저 프로필 가봤어요")
+    //@Auth
+    @GetMapping("/profile/went")
+    public ApiResponse<List<UserProfileShopWentResponseDTO>> getUserProfileWent() {
+        return ApiResponse.success(HttpStatus.OK, userService.getUserProfileWentShop(1L));
+    }
 
 }

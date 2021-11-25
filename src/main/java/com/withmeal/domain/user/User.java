@@ -2,7 +2,7 @@ package com.withmeal.domain.user;
 
 import com.withmeal.domain.BaseEntity;
 import com.withmeal.domain.follow.Follow;
-import com.withmeal.domain.shop.ShopBookmark;
+import com.withmeal.domain.shop.entity.ShopBookmark;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
