@@ -3,7 +3,7 @@ package com.withmeal.dto.response.post;
 import com.withmeal.domain.post.entity.Post;
 import com.withmeal.domain.post.entity.PostEvaluate;
 import com.withmeal.domain.post.entity.PostImages;
-import com.withmeal.domain.shop.Evaluate;
+import com.withmeal.domain.Evaluate;
 import com.withmeal.domain.user.entity.User;
 import lombok.Builder;
 import lombok.Getter;

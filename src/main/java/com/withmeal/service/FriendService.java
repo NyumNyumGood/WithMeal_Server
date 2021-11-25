@@ -36,7 +36,7 @@ public class FriendService {
     public List<UserSearchResponseDTO> getFriendsSearch(Pageable pageable, String nickname, Long userId) {
         User findUser = userService.findOne(userId);
         return userRepository.findAllByNicknameContainingAndUniversityName(nickname, findUser.getUniversityName(), pageable).stream()
-                .filter(user -> user.exceptUsers(getExceptUsers(findUser)))
+                .filter(user -> user.exceptUsers(List.of(findUser)))
                 .map(UserSearchResponseDTO::from)
                 .collect(Collectors.toList());
     }

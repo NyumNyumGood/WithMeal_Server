@@ -1,7 +1,7 @@
 package com.withmeal.controller;
 
-import com.withmeal.dto.email.EmailCodeDTO;
-import com.withmeal.dto.email.EmailDTO;
+import com.withmeal.dto.request.email.EmailCodeRequestDTO;
+import com.withmeal.dto.request.email.EmailRequestDTO;
 import com.withmeal.dto.response.ApiResponse;
 import com.withmeal.service.EmailService;
 import io.swagger.annotations.ApiOperation;
@@ -26,14 +26,14 @@ public class EmailController {
 
     @ApiOperation("이메일 인증 코드 전송")
     @PostMapping("/send")
-    public ApiResponse<Object> sendCodeToEmail(@RequestBody @Valid EmailDTO email) {
+    public ApiResponse<Object> sendCodeToEmail(@RequestBody @Valid EmailRequestDTO email) {
         emailService.sendEmailMessage(email.getEmail());
         return ApiResponse.success(HttpStatus.OK);
     }
 
     @ApiOperation("인증 코드 검증")
     @PostMapping("/verify")
-    public ApiResponse<Object> verifyCode(@RequestBody @Valid EmailCodeDTO emailCodeDto) {
+    public ApiResponse<Object> verifyCode(@RequestBody @Valid EmailCodeRequestDTO emailCodeDto) {
         emailService.verifyCode(emailCodeDto.getCode());
         return ApiResponse.success(HttpStatus.OK);
     }

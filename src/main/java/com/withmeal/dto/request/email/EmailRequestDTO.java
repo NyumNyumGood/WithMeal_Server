@@ -1,4 +1,4 @@
-package com.withmeal.dto.email;
+package com.withmeal.dto.request.email;
 
 import lombok.Getter;
 
@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
  * created by Gyunny 2021/11/26
  */
 @Getter
-public class EmailDTO {
+public class EmailRequestDTO {
 
     @NotBlank
     @Email
