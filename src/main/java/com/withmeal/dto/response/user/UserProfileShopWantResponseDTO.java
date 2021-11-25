@@ -1,8 +1,8 @@
 package com.withmeal.dto.response.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.withmeal.domain.post.entity.PostImages;
 import com.withmeal.domain.shop.entity.Shop;
-import com.withmeal.domain.shop.entity.ShopImage;
 import com.withmeal.domain.user.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,7 +29,7 @@ public class UserProfileShopWantResponseDTO {
     public static UserProfileShopWantResponseDTO from(Shop shop, List<User> users) {
         return UserProfileShopWantResponseDTO.builder()
                 .shopId(shop.getId())
-                .postImages(shop.getShopImage().stream().map(ShopImage::getShopImage).collect(Collectors.toList()))
+                .postImages(shop.getPostImages().stream().map(PostImages::getImageUrl).collect(Collectors.toList()))
                 .category(shop.getCategory())
                 .content(shop.getCategory())
                 .userDTOs(users.stream().map(user -> new UserDTO(user.getId(), user.getProfileImage())).collect(Collectors.toList()))

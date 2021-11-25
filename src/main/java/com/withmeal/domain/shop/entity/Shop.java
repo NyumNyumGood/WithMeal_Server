@@ -1,5 +1,6 @@
 package com.withmeal.domain.shop.entity;
 
+import com.withmeal.domain.post.entity.PostImages;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,11 +27,11 @@ public class Shop {
 
     private String shopName;
 
-    @OneToMany(mappedBy = "shop")
-    private List<ShopImage> shopImage = new ArrayList<>();
-
     private String shopTelephone;
 
     private String category;
+
+    @OneToMany(mappedBy = "shop")
+    private List<PostImages> postImages;
 
 }

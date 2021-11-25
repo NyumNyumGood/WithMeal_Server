@@ -32,7 +32,7 @@ public class UserSearchResponseDTO {
                 .nickname(user.getNickname())
                 .withFollowingNickname("Gyunny1")
                 .shopDTOs(shops.stream()
-                        .map(shop -> new ShopDTO(shop.getId(), shop.getShopName(), shop.getShopImage().get(0).getShopImage(), shop.getCategory()))
+                        .map(shop -> new ShopDTO(shop.getId(), shop.getShopName(), shop.getPostImages().get(0).getImageUrl(), shop.getCategory()))
                         .collect(Collectors.toList()))
                 .build();
     }

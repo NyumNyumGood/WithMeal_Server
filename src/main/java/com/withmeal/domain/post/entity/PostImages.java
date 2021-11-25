@@ -1,6 +1,7 @@
 package com.withmeal.domain.post.entity;
 
 import com.withmeal.domain.BaseEntity;
+import com.withmeal.domain.shop.entity.Shop;
 import com.withmeal.domain.user.entity.User;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -34,5 +35,9 @@ public class PostImages extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "shop_id")
+    private Shop shop;
 
 }

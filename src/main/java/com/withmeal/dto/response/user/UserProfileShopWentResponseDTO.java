@@ -1,8 +1,8 @@
 package com.withmeal.dto.response.user;
 
 import com.withmeal.domain.post.entity.Post;
+import com.withmeal.domain.post.entity.PostImages;
 import com.withmeal.domain.shop.entity.Shop;
-import com.withmeal.domain.shop.entity.ShopImage;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -26,7 +26,7 @@ public class UserProfileShopWentResponseDTO {
         Shop shop = post.getShop();
         return UserProfileShopWentResponseDTO.builder()
                 .shopId(shop.getId())
-                .shopImage(shop.getShopImage().stream().map(ShopImage::getShopImage).collect(Collectors.toList()))
+                .shopImage(shop.getPostImages().stream().map(PostImages::getImageUrl).collect(Collectors.toList()))
                 .shopName(shop.getShopName())
                 .createdAt(post.getCreatedTime().toLocalDate())
                 .build();
