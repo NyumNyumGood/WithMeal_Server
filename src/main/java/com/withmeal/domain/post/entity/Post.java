@@ -10,8 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -41,9 +39,6 @@ public class Post extends BaseEntity {
 
     @Lob
     private String content;
-
-    @Enumerated(EnumType.STRING)
-    private Category category;
 
     @OneToMany(mappedBy = "post")
     private List<PostEvaluate> postEvaluates = new ArrayList<>();

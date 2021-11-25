@@ -16,12 +16,12 @@ public class UserProfileShopWentResponseDTO {
     private String shopImage;
     private String shopName;
 
-    public static UserProfileShopWentResponseDTO from(Post post) {
-        Shop shop = post.getShop();
-        return UserProfileShopWentResponseDTO.builder()
-                .shopId(shop.getId())
-                .shopImage(shop.getShopImage())
-                .shopName(shop.getShopName())
-                .build();
-    }
+//    public static UserProfileShopWentResponseDTO from(Post post) {
+//        Shop shop = post.getShop();
+//        return UserProfileShopWentResponseDTO.builder()
+//                .shopId(shop.getId())
+//                .shopImage(shop.getShopImage())
+//                .shopName(shop.getShopName())
+//                .build();
+//    }
 }

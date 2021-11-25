@@ -1,8 +1,7 @@
 package com.withmeal.dto.response.user;
 
-import com.withmeal.domain.post.entity.Post;
-import com.withmeal.domain.post.entity.PostBookmark;
-import com.withmeal.domain.post.entity.PostImages;
+import com.withmeal.domain.shop.Shop;
+import com.withmeal.domain.shop.ShopImage;
 import com.withmeal.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,18 +17,18 @@ import java.util.stream.Collectors;
 @Getter
 public class UserProfileShopWantResponseDTO {
 
-    private Long postId;
+    private Long shopId;
     private List<String> postImages;
     private String category;
     private String content;
     private List<String> userImages;
 
-    public static UserProfileShopWantResponseDTO from(Post post, List<User> users) {
+    public static UserProfileShopWantResponseDTO from(Shop shop, List<User> users) {
         return UserProfileShopWantResponseDTO.builder()
-                .postId(post.getId())
-                .postImages(post.getPostImages().stream().map(PostImages::getImageUrl).collect(Collectors.toList()))
-                .category(post.getCategory().getKorean())
-                .content(post.getContent())
+                .shopId(shop.getId())
+                .postImages(shop.getShopImage().stream().map(ShopImage::getShopImage).collect(Collectors.toList()))
+                .category(shop.getCategory())
+                .content(shop.getCategory())
                 .userImages(users.stream().map(User::getProfileImage).collect(Collectors.toList()))
                 .build();
     }

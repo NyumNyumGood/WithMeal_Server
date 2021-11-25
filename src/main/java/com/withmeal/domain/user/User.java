@@ -2,7 +2,7 @@ package com.withmeal.domain.user;
 
 import com.withmeal.domain.BaseEntity;
 import com.withmeal.domain.follow.Follow;
-import com.withmeal.domain.post.entity.PostBookmark;
+import com.withmeal.domain.shop.ShopBookmark;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,6 +47,6 @@ public class User extends BaseEntity {
     private List<Follow> follower = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
-    private List<PostBookmark> postBookmarks = new ArrayList<>();
+    private List<ShopBookmark> postBookmarks = new ArrayList<>();
 
 }
