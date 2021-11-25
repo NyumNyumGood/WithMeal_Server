@@ -40,8 +40,4 @@ public class UserWith extends BaseEntity {
     @JoinColumn(name = "post_id")
     private Post post;
 
-    public static String getNickname(UserWith userWith) {
-        return userWith.getUser().getNickname();
-    }
-
 }

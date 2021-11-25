@@ -45,7 +45,7 @@ public class PostFeedResponseDTO {
                 .title(post.getTitle())
                 .content(post.getContent())
                 .foodCategory(post.getShop().getCategory())
-                .withNicknames(post.getUserWiths().stream().map(UserWith::getNickname).collect(Collectors.toList()))
+                .withNicknames(post.getUserWiths().stream().map(userWith -> userWith.getUser().getNickname()).collect(Collectors.toList()))
                 .images(post.getPostImages().stream().map(PostImages::getImageUrl).collect(Collectors.toList()))
                 .evaluates(post.getPostEvaluates().stream().map(PostEvaluate::getEvaluate).collect(Collectors.toList()))
                 .isBookmark(FALSE)
