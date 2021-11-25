@@ -15,6 +15,7 @@ public enum ErrorCode {
     INVALID_TYPE_VALUE(400, "Global005", "Invalid Type Value"),
     HANDLE_ACCESS_DENIED(403, "Global006", "Access is Denied"),
     JSON_WRITE_ERROR(401, "Global007", "JSON content that are not pure I/O problems"),
+    FILE_IO_Exception(500, "Global008", "File Upload IO Exception!"),
 
     // JWT
     INVALID_JWT(401, "J001", "JWT가 없거나 잘못된 값 입니다"),
