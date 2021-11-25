@@ -2,11 +2,13 @@ package com.withmeal.domain.user;
 
 import com.withmeal.domain.BaseEntity;
 import com.withmeal.domain.follow.Follow;
+import com.withmeal.domain.post.entity.PostBookmark;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +22,7 @@ import java.util.List;
 /**
  * created by Gyunny 2021/11/09
  */
+@ToString
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -42,5 +45,8 @@ public class User extends BaseEntity {
 
     @OneToMany(mappedBy = "follower")
     private List<Follow> follower = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<PostBookmark> postBookmarks = new ArrayList<>();
 
 }

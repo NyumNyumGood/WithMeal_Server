@@ -1,7 +1,7 @@
 package com.withmeal.controller;
 
 import com.withmeal.dto.response.ApiResponse;
-import com.withmeal.dto.response.post.PostResponseDTO;
+import com.withmeal.dto.response.post.PostFeedResponseDTO;
 import com.withmeal.service.PostService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +25,7 @@ public class PostController {
     @ApiOperation("피드에서 프로필 ")
     //@Auth
     @GetMapping
-    public ApiResponse<List<PostResponseDTO>> getPostFeed() {
+    public ApiResponse<List<PostFeedResponseDTO>> getPostFeed() {
         //var userId = AuthContext.getCurrentUserId();
         return ApiResponse.success(HttpStatus.OK, postService.getHomeFeed(1L));
     }

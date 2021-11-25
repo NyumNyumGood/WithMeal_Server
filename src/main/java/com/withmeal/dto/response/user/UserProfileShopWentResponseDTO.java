@@ -10,15 +10,15 @@ import lombok.Getter;
  */
 @Builder
 @Getter
-public class UserProfileWentShopResponseDTO {
+public class UserProfileShopWentResponseDTO {
 
     private Long shopId;
     private String shopImage;
     private String shopName;
 
-    public static UserProfileWentShopResponseDTO from(Post post) {
+    public static UserProfileShopWentResponseDTO from(Post post) {
         Shop shop = post.getShop();
-        return UserProfileWentShopResponseDTO.builder()
+        return UserProfileShopWentResponseDTO.builder()
                 .shopId(shop.getId())
                 .shopImage(shop.getShopImage())
                 .shopName(shop.getShopName())

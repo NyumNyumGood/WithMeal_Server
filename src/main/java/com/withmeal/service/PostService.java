@@ -5,7 +5,7 @@ import com.withmeal.domain.follow.FollowRepository;
 import com.withmeal.domain.post.repository.PostRepository;
 import com.withmeal.domain.user.User;
 import com.withmeal.domain.user.UserRepository;
-import com.withmeal.dto.response.post.PostResponseDTO;
+import com.withmeal.dto.response.post.PostFeedResponseDTO;
 import com.withmeal.exception.user.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,11 +26,11 @@ public class PostService {
     private final UserRepository userRepository;
     private final FollowRepository followRepository;
 
-    public List<PostResponseDTO> getHomeFeed(Long userId) {
+    public List<PostFeedResponseDTO> getHomeFeed(Long userId) {
         User user = userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
 
         return postRepository.findAllByUsersIn(convertFollowToUser(user)).stream()
-                .map(PostResponseDTO::from)
+                .map(PostFeedResponseDTO::from)
                 .collect(Collectors.toList());
     }
 

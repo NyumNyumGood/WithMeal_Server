@@ -1,10 +1,8 @@
-package com.withmeal.domain.follow;
+package com.withmeal.domain.post.entity;
 
-import com.withmeal.domain.BaseEntity;
+import com.withmeal.domain.shop.Shop;
 import com.withmeal.domain.user.User;
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -18,25 +16,27 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * created by Gyunny 2021/11/09
+ * created by Gyunny 2021/11/24
  */
+
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 @Getter
-@Builder
-@Table(name = "follow")
+@Table(name = "post_bookmark")
 @Entity
-public class Follow extends BaseEntity {
+public class PostBookmark {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "following_id")
-    private User following; // FK 이름 명시적으로
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "follower_id")
-    private User follower;
+    @JoinColumn(name = "post_id")
+    private Post post;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Shop shop;
 
 }

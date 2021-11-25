@@ -7,6 +7,7 @@ import com.withmeal.domain.user.UserWith;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -26,6 +27,7 @@ import java.util.List;
 /**
  * created by Gyunny 2021/11/09
  */
+@ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Table(name = "post")
