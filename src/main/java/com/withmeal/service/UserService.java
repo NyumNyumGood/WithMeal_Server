@@ -9,11 +9,16 @@ import com.withmeal.domain.shop.entity.ShopBookmark;
 import com.withmeal.domain.shop.repository.ShopBookmarkRepository;
 import com.withmeal.domain.user.entity.User;
 import com.withmeal.domain.user.repository.UserRepository;
+import com.withmeal.dto.request.user.SignInRequestDTO;
+import com.withmeal.dto.request.user.SignupRequestDTO;
 import com.withmeal.dto.response.user.UserProfileResponseDTO;
 import com.withmeal.dto.response.user.UserProfileShopWantResponseDTO;
 import com.withmeal.dto.response.user.UserProfileShopWentResponseDTO;
+import com.withmeal.exception.user.DuplicatedNickNameException;
+import com.withmeal.exception.user.PasswordNotMatchException;
 import com.withmeal.exception.user.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,10 +34,35 @@ import java.util.stream.Collectors;
 @Service
 public class UserService {
 
+    private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final PostRepository postRepository;
     private final FollowRepository followRepository;
     private final ShopBookmarkRepository shopBookmarkRepository;
+
+    @Transactional
+    public Long signup(SignupRequestDTO signupRequestDTO) {
+        verifyDuplicateNickname(signupRequestDTO.getNickname());
+        User user = userRepository.save(signupRequestDTO.toEntity(passwordEncoder.encode(signupRequestDTO.getPassword())));
+        return user.getId();
+    }
+
+    private void verifyDuplicateNickname(String nickname) {
+        var user = userRepository.findAllByNickname(nickname);
+        if (user.isPresent()) {
+            throw new DuplicatedNickNameException();
+        }
+    }
+
+    public Long signIn(SignInRequestDTO signInRequestDTO) {
+        User user = userRepository.findAllByLoginId(signInRequestDTO.getLoginId())
+                .orElseThrow(UserNotFoundException::new);
+        if (!passwordEncoder.matches(signInRequestDTO.getPassword(), user.getPassword())) {
+            throw new PasswordNotMatchException();
+        }
+
+        return user.getId();
+    }
 
     public UserProfileResponseDTO getUserProfile(Long userId) {
         User user = findOne(userId);

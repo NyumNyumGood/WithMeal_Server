@@ -36,9 +36,13 @@ public class User extends BaseEntity {
 
     private String nickname;
 
-    private String profileImage;
+    private String loginId;
+
+    private String password;
 
     private String universityName;
+
+    private String profileImage;
 
     @OneToMany(mappedBy = "following")
     private List<Follow> following = new ArrayList<>();

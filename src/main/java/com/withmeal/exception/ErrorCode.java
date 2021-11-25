@@ -19,6 +19,8 @@ public enum ErrorCode {
 
     // User
     USER_NOT_FOUND(400, "User001", "User Not Found Exception"),
+    NICKNAME_DUPLICATE(400, "User002", "User Nickname Duplicate!"),
+    PASSWORD_NOT_MATCH(400, "User003", "Password Not Match Exception"),
     ;
 
     private final int status;
