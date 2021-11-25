@@ -44,6 +44,8 @@ public class User extends BaseEntity {
 
     private String profileImage;
 
+    private String refreshToken;
+
     @OneToMany(mappedBy = "following")
     private List<Follow> following = new ArrayList<>();
 
@@ -58,6 +60,10 @@ public class User extends BaseEntity {
 
     public boolean exceptUsers(List<User> users) {
         return !users.stream().map(User::getId).collect(Collectors.toList()).contains(id);
+    }
+
+    public void changeRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
     }
 
 }

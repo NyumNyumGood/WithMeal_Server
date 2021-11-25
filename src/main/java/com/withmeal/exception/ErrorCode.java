@@ -15,7 +15,10 @@ public enum ErrorCode {
     INVALID_TYPE_VALUE(400, "Global005", "Invalid Type Value"),
     HANDLE_ACCESS_DENIED(403, "Global006", "Access is Denied"),
     JSON_WRITE_ERROR(401, "Global007", "JSON content that are not pure I/O problems"),
+
+    // JWT
     INVALID_JWT(401, "J001", "JWT가 없거나 잘못된 값 입니다"),
+    DISCARD_REFRESH_TOKEN(401, "J001", "폐기된 RefreshToken 입니다."),
 
     // User
     USER_NOT_FOUND(400, "User001", "User Not Found Exception"),

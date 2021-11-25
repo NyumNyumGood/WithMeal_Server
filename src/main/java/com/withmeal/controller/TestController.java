@@ -28,7 +28,7 @@ public class TestController {
     @ApiOperation("JWT 토큰 발급 임시 API")
     @GetMapping("/api/v1/token")
     public ApiResponse<TokenResponseDTO> getAccessToken() {
-        return ApiResponse.success(HttpStatus.OK, new TokenResponseDTO(jwtService.createAccessToken(1L), new Date()));
+        return ApiResponse.success(HttpStatus.OK, jwtService.createTokenResponse(1L));
     }
 
 }
