@@ -1,5 +1,6 @@
-package com.withmeal.domain.user;
+package com.withmeal.domain.user.repository;
 
+import com.withmeal.domain.user.entity.UserWith;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

@@ -1,4 +1,4 @@
-package com.withmeal.domain.user;
+package com.withmeal.domain.user.entity;
 
 import com.withmeal.domain.BaseEntity;
 import com.withmeal.domain.post.entity.Post;

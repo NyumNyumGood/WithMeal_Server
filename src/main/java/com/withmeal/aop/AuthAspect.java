@@ -1,7 +1,7 @@
 package com.withmeal.aop;
 
-import com.withmeal.domain.user.User;
-import com.withmeal.domain.user.UserRepository;
+import com.withmeal.domain.user.entity.User;
+import com.withmeal.domain.user.repository.UserRepository;
 import com.withmeal.exception.jwt.JwtException;
 import com.withmeal.exception.user.UserNotFoundException;
 import com.withmeal.service.JwtService;

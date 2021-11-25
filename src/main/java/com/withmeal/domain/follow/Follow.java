@@ -1,7 +1,7 @@
 package com.withmeal.domain.follow;
 
 import com.withmeal.domain.BaseEntity;
-import com.withmeal.domain.user.User;
+import com.withmeal.domain.user.entity.User;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

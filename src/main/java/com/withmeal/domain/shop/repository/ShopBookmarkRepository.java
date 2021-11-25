@@ -1,7 +1,7 @@
 package com.withmeal.domain.shop.repository;
 
 import com.withmeal.domain.shop.entity.ShopBookmark;
-import com.withmeal.domain.user.User;
+import com.withmeal.domain.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

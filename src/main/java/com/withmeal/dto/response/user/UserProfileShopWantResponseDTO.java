@@ -2,7 +2,7 @@ package com.withmeal.dto.response.user;
 
 import com.withmeal.domain.shop.entity.Shop;
 import com.withmeal.domain.shop.entity.ShopImage;
-import com.withmeal.domain.user.User;
+import com.withmeal.domain.user.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -35,7 +35,7 @@ public class UserProfileShopWantResponseDTO {
 
     @AllArgsConstructor
     @Getter
-    private static class UserVO {
+    private static class UserDTO {
         private Long userId;
         private String userImage;
     }

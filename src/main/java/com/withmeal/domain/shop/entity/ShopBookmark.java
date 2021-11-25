@@ -1,6 +1,6 @@
 package com.withmeal.domain.shop.entity;
 
-import com.withmeal.domain.user.User;
+import com.withmeal.domain.user.entity.User;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

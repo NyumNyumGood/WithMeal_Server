@@ -1,7 +1,7 @@
 package com.withmeal.dto.response.follow;
 
 import com.withmeal.domain.follow.Follow;
-import com.withmeal.domain.user.User;
+import com.withmeal.domain.user.entity.User;
 import lombok.Builder;
 import lombok.Getter;
 

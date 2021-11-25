@@ -1,6 +1,6 @@
 package com.withmeal.domain.follow;
 
-import com.withmeal.domain.user.User;
+import com.withmeal.domain.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

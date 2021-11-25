@@ -7,8 +7,8 @@ import com.withmeal.domain.post.repository.PostRepository;
 import com.withmeal.domain.shop.entity.Shop;
 import com.withmeal.domain.shop.entity.ShopBookmark;
 import com.withmeal.domain.shop.repository.ShopBookmarkRepository;
-import com.withmeal.domain.user.User;
-import com.withmeal.domain.user.UserRepository;
+import com.withmeal.domain.user.entity.User;
+import com.withmeal.domain.user.repository.UserRepository;
 import com.withmeal.dto.response.user.UserProfileResponseDTO;
 import com.withmeal.dto.response.user.UserProfileShopWantResponseDTO;
 import com.withmeal.dto.response.user.UserProfileShopWentResponseDTO;
@@ -63,13 +63,13 @@ public class UserService {
         return profileShopWantResponseDTOs;
     }
 
-    private List<User> convertFollowToUser(User user) {
+    public List<User> convertFollowToUser(User user) {
         return followRepository.findAllByFollower(user).stream()
                 .map(Follow::getFollowing)
                 .collect(Collectors.toList());
     }
 
-    private User findOne(Long userId) {
+    public User findOne(Long userId) {
         return userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
     }
 
