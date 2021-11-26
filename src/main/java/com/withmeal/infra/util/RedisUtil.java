@@ -1,4 +1,4 @@
-package com.withmeal.util;
+package com.withmeal.infra.util;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;
