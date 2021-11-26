@@ -46,15 +46,19 @@ public class User extends BaseEntity {
 
     private String refreshToken;
 
+    @Builder.Default
     @OneToMany(mappedBy = "following")
     private List<Follow> following = new ArrayList<>();
 
+    @Builder.Default
     @OneToMany(mappedBy = "follower")
     private List<Follow> follower = new ArrayList<>();
 
+    @Builder.Default
     @OneToMany(mappedBy = "user")
     private List<ShopBookmark> shopBookmarks = new ArrayList<>();
 
+    @Builder.Default
     @OneToMany(mappedBy = "user")
     private List<Post> posts = new ArrayList<>();
 

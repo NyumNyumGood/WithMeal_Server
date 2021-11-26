@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * created by Gyunny 2021/11/09
+ * created by Gyunny 2021/11/25
  */
 @RequestMapping("/api/v1/friend")
 @RequiredArgsConstructor

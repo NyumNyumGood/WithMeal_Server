@@ -5,6 +5,8 @@ import com.withmeal.domain.shop.entity.Shop;
 import com.withmeal.domain.user.entity.User;
 import com.withmeal.domain.user.entity.UserWith;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -28,6 +30,8 @@ import java.util.List;
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
+@Builder
+@AllArgsConstructor
 @Table(name = "post")
 @Entity
 public class Post extends BaseEntity {
@@ -40,12 +44,15 @@ public class Post extends BaseEntity {
     @Lob
     private String content;
 
+    @Builder.Default
     @OneToMany(mappedBy = "post")
     private List<PostEvaluate> postEvaluates = new ArrayList<>();
 
+    @Builder.Default
     @OneToMany(mappedBy = "post")
     private List<PostImages> postImages = new ArrayList<>();
 
+    @Builder.Default
     @OneToMany(mappedBy = "post")
     private List<UserWith> userWiths = new ArrayList<>();
 

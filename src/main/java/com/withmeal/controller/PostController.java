@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * created by Gyunny 2021/11/09
+ * created by Gyunny 2021/11/25
  */
 @RequestMapping("/api/v1/post")
 @RequiredArgsConstructor
@@ -24,7 +24,7 @@ public class PostController {
 
     private final PostService postService;
 
-    @ApiOperation("피드에서 프로필 ")
+    @ApiOperation("피드에서 상단 프로필 조회")
     //@Auth
     @GetMapping
     public ApiResponse<List<PostFeedResponseDTO>> getPostFeed() {

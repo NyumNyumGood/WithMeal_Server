@@ -4,6 +4,8 @@ import com.withmeal.domain.BaseEntity;
 import com.withmeal.domain.shop.entity.Shop;
 import com.withmeal.domain.user.entity.User;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -19,6 +21,8 @@ import javax.persistence.ManyToOne;
  * created by Gyunny 2021/11/09
  */
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+@AllArgsConstructor
 @Getter
 @Entity
 public class PostImages extends BaseEntity {
