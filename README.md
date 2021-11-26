@@ -35,25 +35,21 @@
 
 <img width="1371" alt="스크린샷 2021-11-26 오후 10 02 08" src="https://user-images.githubusercontent.com/45676906/143585114-6c085ec8-5335-4f78-89ae-811bc8df2615.png">
 
-
 <br>
 
 ## 📂 Database Modeling
 
-![스크린샷 2021-11-26 오후 10 08 21](https://user-images.githubusercontent.com/45676906/143585819-56353d0b-0cab-48d0-97aa-41dfb6ee2fca.png)
+![스크린샷 2021-11-27 오전 12 31 41](https://user-images.githubusercontent.com/45676906/143603346-72aabd23-b254-4c50-ad5c-d520cceb1517.png)
 
 <br>
 
 ## 프로젝트 트러블 슈팅
 
 - [OneToMany Fetch Join 할 때 MultipleBagFetchException 해결하는 법](https://devlog-wjdrbs96.tistory.com/421)
+- [Spring AOP로 JWT 인가 로직 Aspect 모듈화 하기]()
 - [Redis로 이메일 인증 코드 5분 TTL 적용하기]()
 - [이메일로 인증 코드 보내는 법]()
-- [Spring AOP로 JWT 인가 로직 Aspect 모듈화 하기]()
 - [로그인, 회원가입 JWT 사용하기]()
-
-
-<br>
 
 
 <br>
