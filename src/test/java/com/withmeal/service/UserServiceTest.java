@@ -1,5 +1,6 @@
 package com.withmeal.service;
 
+import com.withmeal.domain.BaseEntity;
 import com.withmeal.domain.follow.FollowRepository;
 import com.withmeal.domain.post.entity.Post;
 import com.withmeal.domain.post.entity.PostImages;
@@ -19,18 +20,19 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
+import org.springframework.cglib.core.Local;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import javax.validation.constraints.NotNull;
+import java.lang.reflect.Field;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import static com.withmeal.service.PostServiceTest.createPost;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 
 /**
@@ -135,21 +137,21 @@ class UserServiceTest {
     @DisplayName("유저 프로필 가봤어요 조회할 수 있다.")
     @Test
     void testGetUserProfileWentShop() {
-        var post  = List.of(createPost());
+        List<Post> posts = new ArrayList<>();
+        posts.add(createPost());
 
-        //ReflectionTestUtils.setField(post, "createdTime", LocalDateTime.now());
-        post.get(0).setCreatedTime(LocalDateTime.now());
-        User user = createUser(1L);
+        ReflectionTestUtils.setField(posts.get(0), BaseEntity.class, "createdTime", LocalDateTime.now(), LocalDateTime.class);
+        var user = createUser(1L);
+
         // given
-
         given(userRepository.findById(1L)).willReturn(Optional.of(user));
-        given(postRepository.findAllByUser(user)).willReturn(post);
+        given(postRepository.findAllByUser(user)).willReturn(posts);
 
         // when
         var userProfileWentShops = userService.getUserProfileWentShop(1L);
 
         // then
-        assertThat(userProfileWentShops.get(0).getShopId()).isEqualTo(post.get(0).getShop().getId());
+        assertThat(userProfileWentShops.get(0).getShopId()).isEqualTo(posts.get(0).getShop().getId());
     }
 
     public static User createUser(Long userId) {
