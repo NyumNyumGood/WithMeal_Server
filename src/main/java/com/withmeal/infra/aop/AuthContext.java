@@ -1,6 +1,6 @@
 package com.withmeal.infra.aop;
 
-import io.jsonwebtoken.JwtException;
+import com.withmeal.exception.jwt.JwtException;
 
 /**
  * created by Gyunny 2021/11/09
@@ -14,7 +14,7 @@ public class AuthContext {
             return AuthContext.USER_CONTEXT.get();
         }
 
-        throw new JwtException("JWT Error !");
+        throw new JwtException();
     }
 
 }

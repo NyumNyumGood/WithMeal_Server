@@ -46,12 +46,10 @@
 ## 프로젝트 트러블 슈팅
 
 - [OneToMany Fetch Join 할 때 MultipleBagFetchException 해결하는 법](https://devlog-wjdrbs96.tistory.com/421)
-- [Spring AOP로 JWT 인가 로직 Aspect 모듈화 하기]()
-- [Redis로 이메일 인증 코드 5분 TTL 적용하기]()
-- [이메일로 인증 코드 보내는 법]()
-- [로그인, 회원가입 JWT 사용하기]()
-- [Mockito로 Service Layer Unit Test 하기]()
-
+- [Spring AOP로 JWT 인가 로직 Aspect 모듈화 하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/AOP/AOP%EB%9E%80%20%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C.md)
+- [Redis로 이메일 인증 코드 5분 TTL 적용하기](https://github.com/wjdrbs96/Today-I-Learn/blob/master/Spring/Redis/Spring%20Data%20Redis%20TTL%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EB%B2%95.md)
+- [Mockito로 Service Layer Unit Test 하기](https://github.com/NyumNyumGood/WithMeal_Server/tree/develop/src/test/java/com/withmeal/service)
+- [Test에서 public이 아닌 필드 Reflection으로 값 넣어주는 법](https://devlog-wjdrbs96.tistory.com/423)
 
 <br>
 
