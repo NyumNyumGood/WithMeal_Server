@@ -36,6 +36,10 @@ public class Shop {
 
     private String category;
 
+    private String latitude;
+
+    private String longitude;
+
     @Builder.Default
     @OneToMany(mappedBy = "shop")
     private List<PostImages> postImages = new ArrayList<>();

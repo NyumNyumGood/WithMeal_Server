@@ -39,7 +39,7 @@
 
 ## 📂 Database Modeling
 
-![스크린샷 2021-11-27 오전 12 31 41](https://user-images.githubusercontent.com/45676906/143603346-72aabd23-b254-4c50-ad5c-d520cceb1517.png)
+![스크린샷 2021-11-27 오전 3 58 45](https://user-images.githubusercontent.com/45676906/143621740-06269e98-d46a-406c-ac8a-88d4ee7a1e27.png)
 
 <br>
 
