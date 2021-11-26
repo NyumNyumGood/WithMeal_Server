@@ -3,10 +3,12 @@ package com.withmeal.controller;
 import com.withmeal.dto.request.user.SignInRequestDTO;
 import com.withmeal.dto.request.user.SignupRequestDTO;
 import com.withmeal.dto.response.ApiResponse;
+import com.withmeal.dto.response.shop.ShopMapResponseDTO;
 import com.withmeal.dto.response.token.TokenResponseDTO;
 import com.withmeal.dto.response.user.UserProfileResponseDTO;
 import com.withmeal.dto.response.user.UserProfileShopWantResponseDTO;
 import com.withmeal.dto.response.user.UserProfileShopWentResponseDTO;
+import com.withmeal.infra.aop.Auth;
 import com.withmeal.infra.jwt.JwtService;
 import com.withmeal.service.UserService;
 import io.swagger.annotations.ApiOperation;
@@ -63,6 +65,13 @@ public class UserController {
     @GetMapping("/profile/went")
     public ApiResponse<List<UserProfileShopWentResponseDTO>> getUserProfileWent() {
         return ApiResponse.success(HttpStatus.OK, userService.getUserProfileWentShop(1L));
+    }
+
+    @ApiOperation("지도에 뜨는 식당 조회")
+    //@Auth
+    @GetMapping("/shop")
+    public ApiResponse<List<ShopMapResponseDTO>> getShopMap() {
+        return ApiResponse.success(HttpStatus.OK, userService.getShopMap(1L));
     }
 
 }

@@ -11,6 +11,7 @@ import com.withmeal.domain.user.entity.User;
 import com.withmeal.domain.user.repository.UserRepository;
 import com.withmeal.dto.request.user.SignInRequestDTO;
 import com.withmeal.dto.request.user.SignupRequestDTO;
+import com.withmeal.dto.response.shop.ShopMapResponseDTO;
 import com.withmeal.dto.response.user.UserProfileResponseDTO;
 import com.withmeal.dto.response.user.UserProfileShopWantResponseDTO;
 import com.withmeal.dto.response.user.UserProfileShopWentResponseDTO;
@@ -104,4 +105,10 @@ public class UserService {
         return userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
     }
 
+    public List<ShopMapResponseDTO> getShopMap(Long userId) {
+        List<ShopBookmark> shopBookmarks = shopBookmarkRepository.findAllByUser(findOne(userId));
+        return shopBookmarks.stream()
+                .map(ShopMapResponseDTO::from)
+                .collect(Collectors.toList());
+    }
 }
