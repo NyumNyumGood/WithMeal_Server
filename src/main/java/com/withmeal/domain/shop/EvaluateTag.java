@@ -1,4 +1,4 @@
-package com.withmeal.domain;
+package com.withmeal.domain.shop;
 
 import lombok.Getter;
 
@@ -6,7 +6,7 @@ import lombok.Getter;
  * created by Gyunny 2021/11/09
  */
 @Getter
-public enum Evaluate {
+public enum EvaluateTag {
 
     COST_PERFORMANCE("가성비"),
     CLEAN("청결"),
@@ -17,7 +17,7 @@ public enum Evaluate {
 
     private final String korean;
 
-    Evaluate(String korean) {
+    EvaluateTag(String korean) {
         this.korean = korean;
     }
 

@@ -1,7 +1,7 @@
 package com.withmeal.domain.post.entity;
 
 import com.withmeal.domain.BaseEntity;
-import com.withmeal.domain.Evaluate;
+import com.withmeal.domain.shop.EvaluateTag;
 import com.withmeal.domain.user.entity.User;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -29,7 +29,7 @@ public class PostEvaluate extends BaseEntity {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private Evaluate evaluate;
+    private EvaluateTag evaluate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")

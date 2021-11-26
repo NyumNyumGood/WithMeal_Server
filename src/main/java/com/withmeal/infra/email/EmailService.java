@@ -1,4 +1,4 @@
-package com.withmeal.service;
+package com.withmeal.infra.email;
 
 import com.withmeal.exception.email.EmailCodeWrongException;
 import com.withmeal.exception.email.EmailSendException;

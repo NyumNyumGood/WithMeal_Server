@@ -3,7 +3,7 @@ package com.withmeal.controller;
 import com.withmeal.dto.request.email.EmailCodeRequestDTO;
 import com.withmeal.dto.request.email.EmailRequestDTO;
 import com.withmeal.dto.response.ApiResponse;
-import com.withmeal.service.EmailService;
+import com.withmeal.infra.email.EmailService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

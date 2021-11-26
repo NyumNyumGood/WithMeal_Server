@@ -40,4 +40,8 @@ public class PostService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
+    public void writePostReview() {
+
+    }
 }
