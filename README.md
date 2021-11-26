@@ -31,9 +31,10 @@
 
 <br>
 
-## Swagger API 명세서
+## [Swagger API 명세서](http://3.36.248.213:8080/swagger-ui.html)
 
 <img width="1371" alt="스크린샷 2021-11-26 오후 10 02 08" src="https://user-images.githubusercontent.com/45676906/143585114-6c085ec8-5335-4f78-89ae-811bc8df2615.png">
+
 
 <br>
 
@@ -48,6 +49,8 @@
 - [OneToMany Fetch Join 할 때 MultipleBagFetchException 해결하는 법](https://devlog-wjdrbs96.tistory.com/421)
 - [Redis로 이메일 인증 코드 5분 TTL 적용하기]()
 - [이메일로 인증 코드 보내는 법]()
+- [Spring AOP로 JWT 인가 로직 Aspect 모듈화 하기]()
+- [로그인, 회원가입 JWT 사용하기]()
 
 
 <br>
