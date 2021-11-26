@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,7 +26,6 @@ import java.util.List;
 /**
  * created by Gyunny 2021/11/09
  */
-@ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Builder

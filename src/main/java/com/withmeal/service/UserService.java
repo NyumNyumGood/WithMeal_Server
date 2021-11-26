@@ -43,7 +43,8 @@ public class UserService {
     @Transactional
     public Long signup(SignupRequestDTO signupRequestDTO) {
         verifyDuplicateNickname(signupRequestDTO.getNickname());
-        User user = userRepository.save(signupRequestDTO.toEntity(passwordEncoder.encode(signupRequestDTO.getPassword())));
+        var user = userRepository.save(signupRequestDTO.toEntity(passwordEncoder.encode(signupRequestDTO.getPassword())));
+        System.out.println(user);
         return user.getId();
     }
 
@@ -55,7 +56,7 @@ public class UserService {
     }
 
     public Long signIn(SignInRequestDTO signInRequestDTO) {
-        User user = userRepository.findAllByLoginId(signInRequestDTO.getLoginId())
+        var user = userRepository.findAllByLoginId(signInRequestDTO.getLoginId())
                 .orElseThrow(UserNotFoundException::new);
         if (!passwordEncoder.matches(signInRequestDTO.getPassword(), user.getPassword())) {
             throw new PasswordNotMatchException();
@@ -65,7 +66,7 @@ public class UserService {
     }
 
     public UserProfileResponseDTO getUserProfile(Long userId) {
-        User user = findOne(userId);
+        var user = findOne(userId);
         return UserProfileResponseDTO.from(user, followRepository.countAllByFollowing(user), followRepository.countAllByFollower(user));
     }
 

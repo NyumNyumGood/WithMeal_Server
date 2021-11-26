@@ -2,7 +2,7 @@ package com.withmeal.infra.email;
 
 import com.withmeal.exception.email.EmailCodeWrongException;
 import com.withmeal.exception.email.EmailSendException;
-import com.withmeal.infra.util.RedisUtil;
+import com.withmeal.infra.redis.RedisUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

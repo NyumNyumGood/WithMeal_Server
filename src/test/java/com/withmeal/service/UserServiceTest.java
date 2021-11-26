@@ -32,6 +32,7 @@ import java.util.stream.Collectors;
 import static com.withmeal.service.PostServiceTest.createPost;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 
 /**
@@ -74,10 +75,10 @@ class UserServiceTest {
 //    void testSignup() {
 //        // given
 //        var signupRequestDTO = createSignupRequestDTO();
-//        User createUser = createUser();
-//        ReflectionTestUtils.setField(createUser, "id", 1L);
+//        var createUser = createUser(1L);
+//        //ReflectionTestUtils.setField(createUser, "id", 1L);
 //
-//        given(userRepository.findAllByNickname("nickname1")).willReturn(Optional.empty());
+//        given(userRepository.findAllByNickname("nickname")).willReturn(Optional.empty());
 //        given(passwordEncoder.encode(signupRequestDTO.getPassword())).willReturn(anyString());
 //        given(userRepository.save(signupRequestDTO.toEntity(signupRequestDTO.getPassword()))).willReturn(createUser);
 //
