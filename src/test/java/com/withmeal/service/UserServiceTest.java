@@ -20,15 +20,14 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
-import org.springframework.cglib.core.Local;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import java.lang.reflect.Field;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static com.withmeal.service.PostServiceTest.createPost;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -140,8 +139,14 @@ class UserServiceTest {
         List<Post> posts = new ArrayList<>();
         posts.add(createPost());
 
-        ReflectionTestUtils.setField(posts.get(0), BaseEntity.class, "createdTime", LocalDateTime.now(), LocalDateTime.class);
         var user = createUser(1L);
+        ReflectionTestUtils.setField(
+                posts.get(0),
+                BaseEntity.class,
+                "createdTime",
+                LocalDateTime.of(2021, 12, 6, 12, 6),
+                LocalDateTime.class
+        );
 
         // given
         given(userRepository.findById(1L)).willReturn(Optional.of(user));
@@ -151,7 +156,11 @@ class UserServiceTest {
         var userProfileWentShops = userService.getUserProfileWentShop(1L);
 
         // then
-        assertThat(userProfileWentShops.get(0).getShopId()).isEqualTo(posts.get(0).getShop().getId());
+        var shopWentResponseDTO = userProfileWentShops.get(0);
+        assertThat(shopWentResponseDTO.getShopId()).isEqualTo(posts.get(0).getShop().getId());
+        assertThat(shopWentResponseDTO.getShopName()).isEqualTo(posts.get(0).getShop().getShopName());
+        assertThat(shopWentResponseDTO.getShopImage()).isEqualTo(posts.get(0).getShop().getPostImages().stream().map(PostImages::getImageUrl).collect(Collectors.toList()));
+        assertThat(shopWentResponseDTO.getCreatedAt()).isEqualTo(posts.get(0).getCreatedTime().toLocalDate());
     }
 
     public static User createUser(Long userId) {
