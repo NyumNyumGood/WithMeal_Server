@@ -5,7 +5,6 @@ import com.withmeal.domain.follow.FollowRepository;
 import com.withmeal.domain.post.entity.Post;
 import com.withmeal.domain.post.repository.PostRepository;
 import com.withmeal.domain.user.repository.UserRepository;
-import com.withmeal.dto.response.post.PostFeedResponseDTO;
 import com.withmeal.exception.user.UserNotFoundException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

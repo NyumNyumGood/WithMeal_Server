@@ -1,10 +1,11 @@
-# `WithMeal Server`
-
-<p align="center"><img src="https://user-images.githubusercontent.com/58849278/143367151-048312bf-6183-4e38-9d50-278d9018caec.png" width = 100%/></p>
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/58849278/143367151-048312bf-6183-4e38-9d50-278d9018caec.png" width = 100%/>
+</p>
 
 <h3 align="center">
 친구에게 듣는 생생한 '진짜 맛집' 정보 ,
-대학생들의 식문화 교류의 장  </h3>
+대학생들의 식문화 교류의 장  
+</h3>
 
 <p align="center">
 
@@ -15,7 +16,6 @@
 ## 📐현재 프로젝트 전체 구성도
 
 ![스크린샷 2021-11-26 오후 11 05 21](https://user-images.githubusercontent.com/45676906/143592744-1ba2af57-033b-4cec-91ed-8c6093a06af6.png)
-
  
 <br>
 
@@ -43,15 +43,41 @@
 
 <br>
 
+## 프로젝트 트러블 슈팅
+
+- [OneToMany Fetch Join 할 때 MultipleBagFetchException 해결하는 법](https://devlog-wjdrbs96.tistory.com/421)
+- [Redis로 이메일 인증 코드 5분 TTL 적용하기]()
+- [이메일로 인증 코드 보내는 법]()
+
+
+<br>
+
+
+<br>
+
 ## withmeal System Flow
 
 ![image](https://user-images.githubusercontent.com/45676906/143593921-598ffbe6-9581-4315-b74b-358ed772cc98.png)
 
+<br> 
+
+## withmeal core function
+
+### 1. Home
+
+![image](https://user-images.githubusercontent.com/45676906/143594811-e7cc5118-7094-41eb-8bdc-670f61a7ff13.png)
+
 <br>
 
-## 프로젝트 트러블 슈팅
+### 2.Map
 
-- [OneToMany Fetch Join 할 때 MultipleBagFetchException 해결하는 법](https://devlog-wjdrbs96.tistory.com/421)
+![image](https://user-images.githubusercontent.com/45676906/143594929-2936aed9-f563-4a10-8523-b00db48c03e2.png)
+
+<br>
+
+### 3. My Page
+
+![image](https://user-images.githubusercontent.com/45676906/143595012-8ad26c06-77fc-4f23-b629-cc7784ab3786.png)
 
 
 <br>
